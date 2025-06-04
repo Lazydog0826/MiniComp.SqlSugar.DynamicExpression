@@ -103,7 +103,7 @@ public static class DynamicExpression
             targetType = prop.Type;
         }
         var constant = Expression.Constant(target, targetType);
-        customCompare ??= WebApp.ServiceProvider.GetRequiredKeyedService<ICustomCompare>(
+        customCompare ??= HostApp.RootServiceProvider.GetRequiredKeyedService<ICustomCompare>(
             comparisonTypeEnum.ToString()
         );
         return customCompare.Compare(prop, constant);
