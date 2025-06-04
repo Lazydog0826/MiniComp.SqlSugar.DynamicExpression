@@ -99,7 +99,8 @@ public static class DynamicExpression
         else
         {
             target =
-                target.ChangeType(prop.Type, null, true) ?? throw new Exception("类型转换错误");
+                target.ToString().ChangeType(prop.Type, null, true)
+                ?? throw new Exception("类型转换错误");
             targetType = prop.Type;
         }
         var constant = Expression.Constant(target, targetType);
